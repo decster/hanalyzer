@@ -1,0 +1,9 @@
+Hadoop job history analyzer
+
+This script can parse hadoop job history log files, and generate csv/json reports, 
+basically you can use it to get execution times, counters, status of jobs, tasks and attempts
+
+Usage: job_history.py <repo path> <output path *.json|*.csv> <start_date> <end_date>
+Example: python job_history.py ./logs/history jobs-2012-08-08.csv 2012-08-08 2012-0809
+         python job_history.py ./logs/history jobs-2012-08-08.json 2012-08-08 None
+         

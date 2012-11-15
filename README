@@ -1,11 +1,12 @@
 Hadoop job history analyzer
 
-This script can parse hadoop job history log files, and generate csv/json reports, 
-basically you can use it to get execution times, counters, status of jobs, statistics 
-about tasks and attempts, etc.
+This script can parse hadoop job history log files, and generate csv/json 
+reports, basically you can use it to get execution times, counters, status 
+of jobs, statistics about tasks and attempts, etc.
 
-This module can be used as a module to parse job history repository, or used as a utility
-to generate job statistics report to get brief information about the whole cluster.
+This module can be used as a module to parse job history repository, or used 
+as a utility to generate job statistics report to get brief information about 
+the whole cluster.
 
 Usage: job_history.py [options] <repo path>
 
@@ -23,7 +24,7 @@ Options:
   -f, --flat            history repo is old Hadoop 0.20 style flat directory,
                         one monster dir with huge number of history files
 
-Report columns include:
+Report data include:
 
 'date',
 'jobname', 
@@ -43,4 +44,8 @@ Report columns include:
 'hdfs_bytes_read', 
 'hdfs_bytes_written', 
 'map_output_bytes',
+
+For more details on output data, take look at example_output.csv and 
+example_output.json.
+
 

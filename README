@@ -1,9 +1,46 @@
 Hadoop job history analyzer
 
 This script can parse hadoop job history log files, and generate csv/json reports, 
-basically you can use it to get execution times, counters, status of jobs, tasks and attempts
+basically you can use it to get execution times, counters, status of jobs, statistics 
+about tasks and attempts, etc.
 
-Usage: job_history.py <repo path> <output path *.json|*.csv> <start_date> <end_date>
-Example: python job_history.py ./logs/history jobs-2012-08-08.csv 2012-08-08 2012-0809
-         python job_history.py ./logs/history jobs-2012-08-08.json 2012-08-08 None
-         
+This module can be used as a module to parse job history repository, or used as a utility
+to generate job statistics report to get brief information about the whole cluster.
+
+Usage: job_history.py [options] <repo path>
+
+Options:
+  -h, --help            show this help message and exit
+  -o OUTPUT, --output=OUTPUT
+                        output file path, *.json|*.csv|*(output both formats
+                        with suffix added) default: jobstats
+  -s STARTDATE, --start=STARTDATE
+                        start date, e.g. 2012-09-09 default: None
+  -e ENDDATE, --end=ENDDATE
+                        end date e.g. 2012-09-09 default: None
+  -n, --dry-run         just scan repo and estimate output size and running
+                        time
+  -f, --flat            history repo is old Hadoop 0.20 style flat directory,
+                        one monster dir with huge number of history files
+
+Report columns include:
+
+'date',
+'jobname', 
+'jobid', 
+'user', 
+'job_priority', 
+'job_status', 
+'total_maps', 
+'total_reduces', 
+'failed_maps', 
+'failed_reduces', 
+'submit_time', 
+'launch_time', 
+'finish_time', 
+'map_avg_time', 
+'reduce_avg_time', 
+'hdfs_bytes_read', 
+'hdfs_bytes_written', 
+'map_output_bytes',
+

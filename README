@@ -12,9 +12,10 @@ Usage: job_history.py [options] <repo path>
 
 Options:
   -h, --help            show this help message and exit
+  -t TYPE, --type=TYPE  output file type, json|csv|all(output all formats)
+                        default: all
   -o OUTPUT, --output=OUTPUT
-                        output file path, *.json|*.csv|*(output both formats
-                        with suffix added) default: jobstats
+                        output file prefix, default: jobstats
   -s STARTDATE, --start=STARTDATE
                         start date, e.g. 2012-09-09 default: None
   -e ENDDATE, --end=ENDDATE
@@ -23,7 +24,8 @@ Options:
                         time
   -f, --flat            history repo is old Hadoop 0.20 style flat directory,
                         one monster dir with huge number of history files
-
+  -p PERIOD, --period=PERIOD
+                        output one file with each period, day|week|month|none
 Report data include:
 
 'date',
